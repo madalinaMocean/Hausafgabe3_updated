@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Course repo.
+ */
 public class CourseRepo extends InMemoryRepository<Course> {
 
     private List<Course> courseList = new ArrayList<>();
@@ -48,6 +51,11 @@ public class CourseRepo extends InMemoryRepository<Course> {
         else return entity;
     }
 
+    /**
+     * Available courses list.
+     *
+     * @return the list
+     */
     public List<Course> availableCourses(){
         List<Course> availableCourses = new ArrayList<>();
         for (Course entity:courseList) {

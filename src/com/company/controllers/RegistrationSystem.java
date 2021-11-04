@@ -7,9 +7,22 @@ import com.company.models.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Registration system.
+ */
 public class RegistrationSystem {
+    /**
+     * The Course list.
+     */
     public CourseRepo courseList= new CourseRepo();
 
+    /**
+     * Register boolean.
+     *
+     * @param course  the course
+     * @param student the student
+     * @return the boolean
+     */
     public boolean register( Course course,Student student){
         if (!course.hasAvailableSeats()){
             System.out.println("Course if fully booked! Try registering to another Course!");
@@ -30,6 +43,11 @@ public class RegistrationSystem {
         return true;
     }
 
+    /**
+     * Retrieve courses with free places list.
+     *
+     * @return the list
+     */
     public List<Course> retrieveCoursesWithFreePlaces() {
         List<Course> freePlacesCourses = new ArrayList<>();
         for (Course course : courseList.getAll()) {
@@ -40,14 +58,32 @@ public class RegistrationSystem {
         return freePlacesCourses;
     }
 
+    /**
+     * Retrieve students enrolled for a course list.
+     *
+     * @param course the course
+     * @return the list
+     */
     public List<Student> retrieveStudentsEnrolledForACourse(Course course){
         return course.getStudentsEnrolled();
     }
 
+    /**
+     * Get all courses list.
+     *
+     * @return the list
+     */
     public List<Course> getAllCourses(){
         return courseList.getAll();
     }
 
+    /**
+     * Delete course by teacher boolean.
+     *
+     * @param teacher the teacher
+     * @param course  the course
+     * @return the boolean
+     */
     public boolean deleteCourseByTeacher(Teacher teacher, Course course){
         if (!teacher.getCourses().contains(course)){
             System.out.println("Teacher does not run this course!");
